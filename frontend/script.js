@@ -15,11 +15,7 @@ function hideMessage() {
     messageElement.hidden = true;
 }
 
-// Build the <li> for one todo:
-// <li class="todo-item [completed]">
-//     <div class="todo-text"><h2>title</h2><p>description</p></div>
-//     <button class="todo-status">Completed | Incomplete</button>
-// </li>
+
 function createTodoElement(todo) {
     const taskElement = document.createElement("li");
     taskElement.classList.add("todo-item");
@@ -60,7 +56,6 @@ function renderTodos(todos) {
     }
 }
 
-// GET /todos and draw them on the page
 function loadTodos() {
     fetch(`${API_URL}/todos`)
         .then((response) => {
@@ -79,7 +74,6 @@ function loadTodos() {
         });
 }
 
-// Bonus 1: POST a new todo, then add it to the list
 function addTodo(event) {
     event.preventDefault();
 
@@ -114,7 +108,6 @@ function addTodo(event) {
         });
 }
 
-// Bonus 2: PUT the new completed value, then update the card's style
 function toggleTodo(todo, taskElement) {
     fetch(`${API_URL}/todos/${todo.id}`, {
         method: "PUT",

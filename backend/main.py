@@ -6,7 +6,6 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-# Keep the database next to this file, no matter where the server is started from
 DATABASE_PATH = Path(__file__).parent / "todos.db"
 
 SEED_TODOS = [
@@ -18,7 +17,6 @@ SEED_TODOS = [
 ]
 
 
-# ---------- Pydantic models ----------
 
 class Todo(BaseModel):
     id: int
@@ -37,7 +35,6 @@ class TodoUpdate(BaseModel):
     completed: bool
 
 
-# ---------- Database ----------
 
 def get_connection():
     connection = sqlite3.connect(DATABASE_PATH)
@@ -59,7 +56,6 @@ def initialize_database():
         """
     )
 
-    # Only add the starter todos the first time, so restarts don't duplicate them
     count = connection.execute("SELECT COUNT(*) FROM todos").fetchone()[0]
     if count == 0:
         connection.executemany(
@@ -71,7 +67,6 @@ def initialize_database():
     connection.close()
 
 
-# ---------- App ----------
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -81,7 +76,6 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Todo API", lifespan=lifespan)
 
-# important to allow your web app on a different url communicate with the backend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -103,11 +97,9 @@ def get_todos():
     rows = cursor.fetchall()
     connection.close()
 
-    # sqlite3.Row -> dict -> Todo (Pydantic turns 0/1 into False/True)
     return [Todo(**dict(row)) for row in rows]
 
 
-# ---------- Bonus: add and complete todos ----------
 
 @app.post("/todos", response_model=Todo, status_code=201)
 def create_todo(todo: TodoCreate):

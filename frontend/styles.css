@@ -11,7 +11,6 @@ body {
     color: #1f1f1f;
 }
 
-/* ---------- Header ---------- */
 
 .app-header {
     display: flex;
@@ -53,7 +52,6 @@ body {
     font-weight: 700;
 }
 
-/* ---------- Todo panel ---------- */
 
 .todo-panel {
     max-width: 600px;
@@ -97,7 +95,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Status: a circle with a text label under it */
 .todo-status {
     display: flex;
     flex-direction: column;
@@ -127,7 +124,6 @@ body {
     font-weight: 700;
 }
 
-/* Completed tasks look different: blue card, check mark, faded title */
 .todo-item.completed {
     background-color: #e3f2fd;
 }
@@ -145,7 +141,6 @@ body {
     color: #1565c0;
 }
 
-/* ---------- New task card ---------- */
 
 .new-todo {
     display: flex;
@@ -206,7 +201,6 @@ body {
     color: #b00020;
 }
 
-/* ---------- Small screens ---------- */
 
 @media (max-width: 480px) {
     body {
