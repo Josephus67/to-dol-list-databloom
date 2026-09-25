@@ -17,42 +17,20 @@
 
     <main class="todo-panel">
         <ul id="todo-list" class="todo-list">
-            <li class="todo-item completed">
-                <div class="todo-text">
-                    <h2 class="todo-title">Item 1</h2>
-                    <p class="todo-description">Set up the project folders</p>
-                </div>
-                <span class="todo-status">Completed</span>
-            </li>
-            <li class="todo-item completed">
-                <div class="todo-text">
-                    <h2 class="todo-title">Item 2</h2>
-                    <p class="todo-description">Write the HTML structure</p>
-                </div>
-                <span class="todo-status">Completed</span>
-            </li>
-            <li class="todo-item">
-                <div class="todo-text">
-                    <h2 class="todo-title">Item 3</h2>
-                    <p class="todo-description">Style the page with CSS</p>
-                </div>
-                <span class="todo-status">Incomplete</span>
-            </li>
-            <li class="todo-item">
-                <div class="todo-text">
-                    <h2 class="todo-title">Item 4</h2>
-                    <p class="todo-description">Build the FastAPI backend</p>
-                </div>
-                <span class="todo-status">Incomplete</span>
-            </li>
-            <li class="todo-item">
-                <div class="todo-text">
-                    <h2 class="todo-title">Item 5</h2>
-                    <p class="todo-description">Connect the frontend to the backend</p>
-                </div>
-                <span class="todo-status">Incomplete</span>
-            </li>
+            <!-- Todos are added here by script.js -->
         </ul>
+
+        <form id="new-todo-form" class="new-todo">
+            <div class="new-todo-fields">
+                <input id="todo-title" type="text" placeholder="New task" required>
+                <input id="todo-description" type="text" placeholder="This should be for a new task" required>
+            </div>
+            <button type="submit" class="add-button" aria-label="Add todo">+</button>
+        </form>
+
+        <p id="message" class="message" hidden></p>
     </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
