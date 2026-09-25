@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 16px;
+    background-color: #fff8dc;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1f1f1f;
+}
+
+/* ---------- Header ---------- */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 20px;
+    background-color: #9be8f2;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+.app-title {
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-name {
+    font-weight: 600;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    background-color: #fffbe8;
+    font-weight: 700;
+}
+
+/* ---------- Todo panel ---------- */
+
+.todo-panel {
+    max-width: 600px;
+    margin: 24px auto;
+    padding: 48px 24px;
+    background-color: #f3f0e4;
+    border-radius: 10px;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background-color: #f7f8fa;
+    border: 1px solid #333;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+
+.todo-title {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.todo-description {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Status: a circle with a text label under it */
+.todo-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 0.7rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.todo-status::before {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Completed tasks look different: blue card, check mark, faded title */
+.todo-item.completed {
+    background-color: #e3f2fd;
+}
+
+.todo-item.completed .todo-title {
+    text-decoration: line-through;
+    color: #555;
+}
+
+.todo-item.completed .todo-status::before {
+    content: "\2713";
+}
+
+.todo-item.completed .todo-status {
+    color: #1565c0;
+}
+
+/* ---------- New task card ---------- */
+
+.new-todo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 380px;
+    margin: 12px auto 0;
+    padding: 14px 16px;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+.new-todo-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+}
+
+.new-todo input {
+    width: 100%;
+    padding: 4px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font: inherit;
+    font-size: 0.9rem;
+    background: transparent;
+}
+
+.new-todo input:first-child {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.new-todo input:focus {
+    outline: none;
+    border-bottom-color: #1565c0;
+}
+
+.add-button {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.message {
+    margin: 12px auto 0;
+    max-width: 380px;
+    text-align: center;
+    color: #b00020;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+
+    .profile-name {
+        display: none;
+    }
+
+    .todo-panel {
+        padding: 20px 12px;
+    }
+}
