@@ -66,6 +66,12 @@ Each todo looks like this:
 1. **SQLite:** todos are stored in the `todos` table. `completed` is stored as `0` or `1`.
 2. **FastAPI:** `GET /todos` opens a connection, runs `SELECT * FROM todos`, and turns each row into a `Todo` Pydantic model. That converts `0`/`1` to `false`/`true`. FastAPI then returns the list as JSON.
 3. **Browser:** `script.js` calls `fetch("http://127.0.0.1:8000/todos")` and parses the JSON. For each todo it builds an `<li>` and appends it to `#todo-list`. Completed todos get the `completed` class, which gives them a different style.
+   ## html-before-css
+<img width="900" height="800" alt="html-before-css" src="https://github.com/user-attachments/assets/e18bc3f3-4906-4f2a-8c90-2354a21f8b9f" />
+    ## integrated-application
+<img width="900" height="850" alt="integrated-application" src="https://github.com/user-attachments/assets/ae17d47f-f0c0-4b95-b895-f74b4e29e385" />
+    ## styled-frontend
+<img width="900" height="800" alt="styled-frontend" src="https://github.com/user-attachments/assets/dae0d8b8-cb86-45a2-80be-65040a3d5ec2" />
 
 ## Features
 
